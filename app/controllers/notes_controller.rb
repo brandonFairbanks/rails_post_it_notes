@@ -8,7 +8,8 @@ class NotesController < ApplicationController
   end
 
   def new
-	@note = Note.new
+    @note = Note.new
+    render partial: 'form'
   end
 
   def create 
@@ -22,7 +23,8 @@ class NotesController < ApplicationController
   end
 
   def edit 
-	@note = Note.find(params[:id])
+    @note = Note.find(params[:id])
+    render partial: 'form'
   end
 
   def update 
@@ -45,5 +47,4 @@ class NotesController < ApplicationController
   def note_params
 	params.require(:note).permit(:title, :body)
   end
-
 end
